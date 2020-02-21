@@ -10,5 +10,8 @@ public class Main {
 
         System.out.println(conta1.getSaldo());
         System.out.println(conta2.getSaldo());
+        System.out.println(conta1.toString());
+
+        System.out.println(Conta.getTotalContas());
     }
 }
