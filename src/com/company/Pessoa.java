@@ -1,15 +1,13 @@
 package com.company;
 
-public class Pessoa {
+public abstract class Pessoa {
     private String nome;
     private int idade;
-    private String ocupacao;
     private String cpf;
 
-    public Pessoa(String nome, int idade, String ocupacao, String cpf) {
+    public Pessoa(String nome, int idade, String cpf) {
         this.nome = nome;
         this.idade = idade;
-        this.ocupacao = ocupacao;
         this.cpf = cpf;
     }
 
@@ -29,14 +27,6 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    public String getOcupacao() {
-        return ocupacao;
-    }
-
-    public void setOcupacao(String ocupacao) {
-        this.ocupacao = ocupacao;
-    }
-
     public String getCpf() {
         return cpf;
     }
@@ -49,7 +39,6 @@ public class Pessoa {
     public String toString() {
         return "\nNome: " + nome +
                 "\nIdade: " + idade +
-                "\nOcupacao: " + ocupacao +
                 "\nCPF: " + cpf;
     }
 }
