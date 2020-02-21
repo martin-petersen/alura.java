@@ -3,7 +3,7 @@ package com.company;
 import java.math.BigDecimal;
 
 public class Conta {
-    private String titular;
+    private Pessoa titular;
     private String agencia;
     private String numero;
     private double saldo;
@@ -11,24 +11,24 @@ public class Conta {
     public Conta() {
     }
 
-    public Conta(String titular, String agencia, String numero) {
+    public Conta(Pessoa titular, String agencia, String numero) {
         this.titular = titular;
         this.agencia = agencia;
         this.numero = numero;
     }
 
-    public Conta(String titular, String agencia, String numero, double saldo) {
+    public Conta(Pessoa titular, String agencia, String numero, double saldo) {
         this.titular = titular;
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
     }
 
-    public String getTitular() {
+    public Pessoa getTitular() {
         return titular;
     }
 
-    public void setTitular(String titular) {
+    public void setTitular(Pessoa titular) {
         this.titular = titular;
     }
 
@@ -61,6 +61,25 @@ public class Conta {
     }
 
     public boolean saque(double valor) {
-        return (valor <= getSaldo());
+        if(valor <= getSaldo()) {
+            setSaldo(getSaldo()-valor);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean transferencia(double valor, Conta alvoTranferencia) {
+        if(valor <= getSaldo()) {
+            alvoTranferencia.depositar(valor);
+            this.saque(valor);
+            return true;
+        } else {
+            if(alvoTranferencia == this) {
+                System.out.println("Você não pode transferir da sua conta para sua conta, WTF?");
+                return false;
+            }
+            System.out.println("Saldo insuficiente");
+            return false;
+        }
     }
 }
