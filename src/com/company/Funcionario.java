@@ -2,7 +2,7 @@ package com.company;
 
 import java.time.LocalDateTime;
 
-public class Funcionario extends Pessoa{
+public abstract class Funcionario extends Pessoa{
 
     private double salario;
     private String cargo;
@@ -40,12 +40,16 @@ public class Funcionario extends Pessoa{
         this.dataAdmissao = dataAdmissao;
     }
 
+    public double bonusFuncionario() {
+        return getSalario() * 0.1;
+    }
+
     @Override
     public String toString() {
         return "Funcionario: " +
                 super.toString() +
+                "\nCargo: " + cargo +
                 "\nSalario: " + salario +
-                "\nCargo: " + cargo+
                 "\nDataAdmissao: " + dataAdmissao;
     }
 }
