@@ -4,6 +4,7 @@ public abstract class Pessoa {
     private String nome;
     private int idade;
     private String cpf;
+    private int senha;
 
     public Pessoa(String nome, int idade, String cpf) {
         this.nome = nome;
@@ -33,6 +34,14 @@ public abstract class Pessoa {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public int getSenha() {
+        return senha;
+    }
+
+    public void setSenha(int senha) {
+        this.senha = senha;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.company;
 
-public class Gerente extends Funcionario {
+public class Gerente extends Funcionario implements Autenticacao{
 
     private int nivelHierarquiaEmpresa;
     private String agencia;
@@ -25,5 +25,14 @@ public class Gerente extends Funcionario {
         return super.toString() +
                 "\nNivel de Hierarquia: " + nivelHierarquiaEmpresa +
                 "\nAgencia: " + agencia;
+    }
+
+    @Override
+    public void autenticacao() {
+        if(getSenha() == 222) {
+            System.out.println("LOgado");
+        } else {
+            System.out.println("Senha incorreta!");
+        }
     }
 }

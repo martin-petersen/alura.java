@@ -1,6 +1,6 @@
 package com.company;
 
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa implements Autenticacao{
     private String ocupacao;
 
     public Cliente(String nome, int idade, String cpf, String ocupacao) {
@@ -21,5 +21,14 @@ public class Cliente extends Pessoa{
         return "Cliente: " +
                 super.toString() +
                 "\nOcupacao: " + ocupacao;
+    }
+
+    @Override
+    public void autenticacao() {
+        if(getSenha() == 222) {
+            System.out.println("LOgado");
+        } else {
+            System.out.println("Senha incorreta!");
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.company;
 
-public class Bancario extends Funcionario{
+public class Bancario extends Funcionario implements Autenticacao{
 
     private int guiche;
     private String agencia;
@@ -25,5 +25,14 @@ public class Bancario extends Funcionario{
         return super.toString() +
                 "\nGuiche: " + guiche +
                 "\nAgencia: " + agencia;
+    }
+
+    @Override
+    public void autenticacao() {
+        if(getSenha() == 222) {
+            System.out.println("LOgado");
+        } else {
+            System.out.println("Senha incorreta!");
+        }
     }
 }
