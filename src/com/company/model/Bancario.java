@@ -1,4 +1,4 @@
-package com.company;
+package com.company.model;
 
 public class Bancario extends Funcionario implements Autenticacao{
 
@@ -28,11 +28,11 @@ public class Bancario extends Funcionario implements Autenticacao{
     }
 
     @Override
-    public void autenticacao() {
-        if(getSenha() == 222) {
-            System.out.println("LOgado");
+    public String autenticacao() {
+        if(getSenha() == 223) {
+            return "Logado";
         } else {
-            System.out.println("Senha incorreta!");
+            return "Senha incorreta!";
         }
     }
 }

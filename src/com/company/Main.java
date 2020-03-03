@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.exception.AutenticacaoException;
+import com.company.model.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -34,5 +37,13 @@ public class Main {
         System.out.println(novoDiretor.toString());
         System.out.println(novoDiretor.getSalario() + novoDiretor.bonusFuncionario());
 
+        novoGerente.setSenha(223);
+
+        try{
+            novoGerente.autenticacao();
+        } catch (AutenticacaoException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

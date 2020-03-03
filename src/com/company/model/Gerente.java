@@ -1,4 +1,6 @@
-package com.company;
+package com.company.model;
+
+import com.company.exception.AutenticacaoException;
 
 public class Gerente extends Funcionario implements Autenticacao{
 
@@ -28,11 +30,11 @@ public class Gerente extends Funcionario implements Autenticacao{
     }
 
     @Override
-    public void autenticacao() {
+    public String autenticacao() throws AutenticacaoException {
         if(getSenha() == 222) {
-            System.out.println("LOgado");
+            return "Logado";
         } else {
-            System.out.println("Senha incorreta!");
+            throw new AutenticacaoException("Autentication failed");
         }
     }
 }

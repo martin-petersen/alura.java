@@ -1,4 +1,4 @@
-package com.company;
+package com.company.model;
 
 public class Cliente extends Pessoa implements Autenticacao{
     private String ocupacao;
@@ -24,11 +24,11 @@ public class Cliente extends Pessoa implements Autenticacao{
     }
 
     @Override
-    public void autenticacao() {
-        if(getSenha() == 222) {
-            System.out.println("LOgado");
+    public String autenticacao() {
+        if(getSenha() == 22209) {
+            return "Logado";
         } else {
-            System.out.println("Senha incorreta!");
+            return "Senha incorreta!";
         }
     }
 }
